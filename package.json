@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mmayapapaya/DIG4503#readme",
   "dependencies": {
-    "chalk": "^3.0.0"
+    "chalk": "^3.0.0",
+    "express": "^4.17.1"
   }
 }
