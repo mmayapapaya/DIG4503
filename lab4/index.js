@@ -5,7 +5,7 @@ const port = 80;
 
 const getPokemons = require('json-pokemon/getPokemon');
 
-// /id/:id returns JSON obeject matching pokemon ID orrr an error if ID doesn't exist
+// /name/:name returns JSON obeject matching pokemon ID orrr an error if ID doesn't exist
 
 App.get('/name/:name', (req, res) => {
 
@@ -21,7 +21,7 @@ App.get('/name/:name', (req, res) => {
 
 });
 
-// /name/:name returns a json object matching pokemon name or an error if name doesn't exist
+// /id/:id returns a json object matching pokemon name or an error if name doesn't exist
 
 App.get('/id/:id', (req, res) => {
 
