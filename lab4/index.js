@@ -9,14 +9,14 @@ const getPokemons = require('json-pokemon/getPokemon');
 
 App.get('/name/:name', (req, res) => {
 
-	if(getPokemons.getPokemonByName(Req.params.name) == null) {
+	if(getPokemons.getPokemonByName(req.params.name) == null) {
 		res.send("No matches! Sorry bud.");
-		console.log(chalk.red(Req.path));
+		console.log(chalk.red(req.path));
 	}
 
 	else {
-		res.send(Req.params.name);
-		console.log(chalk.green(Req.path));
+		res.send(req.params.name);
+		console.log(chalk.green(req.path));
 	}
 
 });
@@ -25,14 +25,14 @@ App.get('/name/:name', (req, res) => {
 
 App.get('/id/:id', (req, res) => {
 
-	if(getPokemons.getPokemonById(Req.params.id) == null) {
+	if(getPokemons.getPokemonById(req.params.id) == null) {
 		res.send("No matches! Sorry bud.");
-		console.log(chalk.red(Req.path));
+		console.log(chalk.red(req.path));
 	}
 
 	else {
-		res.send(Req.params.id);
-		console.log(chalk.green(Request.path));
+		res.send(req.params.id);
+		console.log(chalk.green(req.path));
 	}
 
 });
