@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+	<script>
+
+function searchID(event){
+event.preventDefault();
+
+let element = document.querySelector("#pokeid");
+
+fetch("/id/" + element.value).then((Response) => {
+	return Response.json();
+}).then((processed) => {
+
+console.log(processed);
+let result = document.querySelector("#results");
+
+if(processed.error){
+
+	result.innerHTML = "We couldn't find anything, please brush up on your Pokemon knowledge.";
+}
+else {
+	result.innerHTML = processed.id;
+}
+
+});
+}
+
+function searchName(event){
+event.preventDefault();
+let element = document.querySelector("#pokename");
+
+fetch("/name/" + element.value).then((Response) => {
+	return Response.json();
+}).then((processed) => {
+
+let result = document.querySelector("#results");
+
+if(processed.error){
+	result.innerHTML = "We couldn't find anything, please brush up on your Pokemon knowledge.";
+}
+else {
+	result.innerHTML = processed.name;
+}
+
+});
+}
+
+	</script>
+
+<h1 style="color: crimson;">Super Duper Cool Pokemon Search Tool</h1>
+
+<h3 style="color: crimson;">Search for ID:</h3>
+<form onsubmit ="searchID(event)">
+<input type = "text" id ="pokeid">
+<button style="border-radius: 50%;"><img src="pokeball.png" alt="pokeball" width="48" height="48"></button>
+</form>
+
+<br>
+<br>
+
+<h3 style="color: crimson;">Search for Name:</h3>
+<form onsubmit = "searchName(event)">
+<input type="text" id="pokename">
+<button style="border-radius: 50%;"><img src="pokeball.png" alt="pokeball" width="48" height="48"></button>
+</form>
+<br>
+<h3 style="color: crimson;">Results:</h3>
+<div id="results"></div>
+
+
+</body>
+
+</html>

@@ -4,34 +4,44 @@ const chalk = require("Chalk");
 const port = 80;
 
 const getPokemons = require('json-pokemon/getPokemon');
+//static route :^)
 
-// /name/:name returns JSON obeject matching pokemon ID orrr an error if ID doesn't exist
+App.use(Express.json());
+App.use("/", Express.static("public"));
+
+// /name/:name returns object matching pokemon name orrr an error if name doesn't exist
 
 App.get('/name/:name', (req, res) => {
 
-	if(getPokemons.getPokemonByName(req.params.name) == null) {
-		res.send("No matches! Sorry bud.");
+	var typedname = req.params.name;
+	var pokemonname = getPokemons.getPokemonByName(typedname);
+
+	if(pokemonname == null) {
+		res.json("No matches! Sorry bud.");
 		console.log(chalk.red(req.path));
 	}
 
 	else {
-		res.send(req.params.name);
+		res.json(pokemonname);
 		console.log(chalk.green(req.path));
 	}
 
 });
 
-// /id/:id returns a json object matching pokemon name or an error if name doesn't exist
+// /id/:id returns a object matching pokemon id or an error if id doesn't exist
 
 App.get('/id/:id', (req, res) => {
 
-	if(getPokemons.getPokemonById(req.params.id) == null) {
-		res.send("No matches! Sorry bud.");
+	var typedId = Number(req.params.id);
+	var pokemonid = getPokemons.getPokemonById(typedId);
+
+	if(pokemonid == null) {
+		res.json("No matches! Sorry bud.");
 		console.log(chalk.red(req.path));
 	}
 
 	else {
-		res.send(req.params.id);
+		res.json(pokemonid);
 		console.log(chalk.green(req.path));
 	}
 
