@@ -37,7 +37,7 @@ class IdSearch extends React.Component {
                  <h2>Search for ID:</h2>
                  <form onSubmit={this.readId}>
                     <input id="pokemonid" type="text" />
-                    <button>Click Here!</button>
+                    <button></button>
                 </form>
             </div>
         );

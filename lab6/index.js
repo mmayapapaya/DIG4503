@@ -10,7 +10,7 @@ const getPokemons = require('json-pokemon/getPokemon');
 
 App.use(cors());
 App.use(Express.json());
-App.use("/", Express.static("client/build"));
+App.get("/", Express.static("client/build"));
 
 // /name/:name returns an object matching pokemon name orrr an error if name doesn't exist
 
