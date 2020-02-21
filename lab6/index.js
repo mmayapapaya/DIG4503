@@ -1,14 +1,14 @@
 const cors = require("cors");
-App.use(cors());
-
 const Express = require("express");
 const App = Express();
 const chalk = require("Chalk");
 const port = 80;
 
 const getPokemons = require('json-pokemon/getPokemon');
+
 //static route :^)
 
+App.use(cors());
 App.use(Express.json());
 App.use("/", Express.static("client/build"));
 
@@ -49,7 +49,6 @@ App.get('/id/:id', (req, res) => {
 	}
 
 });
-
 
 App.listen(80, () => {
 	console.log("Server Running Babyyy!");
