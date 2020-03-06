@@ -18,6 +18,7 @@ class NameSearch extends React.Component {
             
     
             let reporting = document.querySelector("#reportingArea");
+       
 
            
             if(processed.error) {
