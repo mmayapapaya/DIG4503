@@ -46,7 +46,27 @@ App.get("/movies/title/:title", (req, res) => {
 });
 
 // TODO: Add a route /movies/year/:year
+App.get("/movies/year/:year", (req, res) => {
 
+    // Set an "error" result to send back first
+    let result = {"error": "Could not a movie with that year!"};
+
+    // findYear() will return a Promise
+    // Once it finishes, send the response
+    database.findYear(req.params.year).then((movie) => {
+
+        // If a movie was not found, it will be null
+        if(movie != null) {
+            // If it is not null, set result to whatever movie is
+            result = movie;
+        }
+        
+        // Send as a response: either the "error" object or the movie object found
+        res.json(result);
+
+    });
+
+});
 // Listen on 'port'
 App.listen(port, () => {
     // Let the user know the server is running
