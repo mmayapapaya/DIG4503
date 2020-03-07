@@ -26,7 +26,7 @@ let database = new Database();
 App.get("/movies/title/:title", (req, res) => {
 
     // Set an "error" result to send back first
-    let result = {"error": "Could not a movie with that title!"};
+    let result = {"error": "Could not find a movie with that title!"};
 
     // findTitle() will return a Promise
     // Once it finishes, send the response
@@ -49,7 +49,7 @@ App.get("/movies/title/:title", (req, res) => {
 App.get("/movies/year/:year", (req, res) => {
 
     // Set an "error" result to send back first
-    let result = {"error": "Could not a movie with that year!"};
+    let result = {"error": "Could not find a movie with that year!"};
 
     // findYear() will return a Promise
     // Once it finishes, send the response
@@ -70,5 +70,5 @@ App.get("/movies/year/:year", (req, res) => {
 // Listen on 'port'
 App.listen(port, () => {
     // Let the user know the server is running
-    console.log("Server running!")
+    console.log("Server up & running!")
 });
