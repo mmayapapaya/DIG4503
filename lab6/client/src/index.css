@@ -1,0 +1,48 @@
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  	background: url("poke_bg.jpg");
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+button {
+  background-image: url('eevee.jpg'); 
+  background-size: cover; 
+  width: 50px; 
+  height: 50px;
+  display: inline-block; 
+  margin-left: 5px;
+}
+
+input {
+	display: inline-block;
+	height: 30px;
+	padding-top: 30px;
+	margin-left: 25px;
+}
+
+h2 {
+	color: #D2691E;
+	margin-left:25px;
+}
+
+form {
+ display: inline-block;
+ height: 50px;
+}
+
+.contents {
+	background: #FFDAB9;
+	width: 400px;
+	margin-left: 10px;
+
+}
