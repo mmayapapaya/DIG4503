@@ -1,19 +1,29 @@
-import getPokemon from 'json-pokemon/getPokemon';
+import pokemon from 'json-pokemon';
 
-module.exports = function getPokemonList(filter) {
-  const filterObject = Object.assign({}, filter || {});
+function response(req, res) {
 
-  if (filterObject.type) {
-    filterObject.type = Array.isArray(filterObject.type) ? [...filterObject.type] : [filterObject.type]
-  } else {
-    filterObject.type = null
-  }
+	let result = {"error" : "Error. Could not find type."};
 
-  return data.filter(function(pokemon) {
-    if (!filterObject.type) return true;
+    let type = req.query.type;
 
-    return filterObject.type.every(function(type) {
-      return pokemon.typeList.includes(type);
-    });
-  });
-};
+    let results = [];
+
+	for(let i = 0; i < pokemon.length; i++) {
+console.log(pokemon[i]);
+	for(let k = 0; k < pokemon[i].typeList.length; k++) {
+
+		if (pokemon[i].typeList == req.query.type) {
+			results.push(pokemon[i].typeList);
+			console.log(pokemon[i]);
+
+		} else if (result.length > 1) {
+			res.json(result.error);
+		} 
+
+res.json(results);
+
+		}
+	}
+}
+
+export default response;
