@@ -4,10 +4,17 @@ import styles from './styles.module.css';
 
 class TypeSearch extends React.Component {
 
-//search for pokemon name
-  getType() {
+//search for pokemon type
+getType() {
 
-    let type = document.querySelector("#typeInput");
+
+    let type = document.querySelector('#typeInput');
+
+        // Test if year is an empty string
+        // If so, change it to a value
+        if(type.length === 0) {
+            type = "0";
+        }
 
     fetch("/api/pokemon/type/" + type.value)
     .then((res) => { return res.json(); } )
@@ -19,13 +26,15 @@ class TypeSearch extends React.Component {
 
 
       if(processed.error) {
-//name not found
+//type not found
         resultName.innerHTML = processed.error;
         typeresults.innerHTML = processed.error;
       } else {
- //name found! + display ID       
-        typeresults.innerHTML = processed.typeList;
-        resultName.innerHTML = processed.name;
+ //type found! + display names
+ console.log(processed);      
+        processed.forEach(index => {
+          resultName.innerHTML += "<br>" + index.name;
+         })
       }
 
     });
